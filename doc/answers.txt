@@ -1,7 +1,0 @@
-Q1. What do you see on the command screen?
-A1.
-    C:\Users\ayesh\OneDrive\Documents\GitHub\UPF-POO21-G101-14>git status
-    On branch main
-    nothing to commit, working tree clean
-    
-Q2.
