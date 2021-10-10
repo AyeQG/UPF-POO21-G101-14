@@ -1,0 +1,78 @@
+Q1. What do you see on the command screen?
+A1. We see the following:
+C:\Users\ayesh\OneDrive\Documents\GitHub\newgit\UPF-POO21-G101-14>git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        README.md
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Q2. Use the command git status again and explain what has changed?
+A2. We see the following:
+C:\Users\ayesh\OneDrive\Documents\GitHub\newgit\UPF-POO21-G101-14>git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   README.md
+
+This means that we have added the created file README.md inside the git.
+        
+Q3. What is the output of the command? What is the current status? Now add the README.md to the staging area.
+A3. We see the following:
+C:\Users\ayesh\OneDrive\Documents\GitHub\newgit\UPF-POO21-G101-14>git diff README.md
+diff --git a/README.md b/README.md
+index e69de29..0fc301b 100644
+--- a/README.md
++++ b/README.md
+@@ -0,0 +1 @@
++adding a sentence in readme
+\ No newline at end of file
+
+C:\Users\ayesh\OneDrive\Documents\GitHub\newgit\UPF-POO21-G101-14>git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   README.md
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   README.md
+
+Q4. What can be a good message for the first commit? What is the current
+status?
+A4. We use the following message and the current status is the following:
+C:\Users\ayesh\OneDrive\Documents\GitHub\newgit\UPF-POO21-G101-14>git commit -m "readme updated"
+[main 069a4ee] readme updated
+ 1 file changed, 1 insertion(+)
+ create mode 100644 README.md
+
+C:\Users\ayesh\OneDrive\Documents\GitHub\newgit\UPF-POO21-G101-14>git status
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+
+Q5. How many commits there are in the log? What are the first seven digits
+(letters and numbers) that identify the first README.md commit?
+A5. There are a lot of commits since we had problems and had to delete and create again the README.me file.
+The last seven digits for the first README.md commit are: commit 069a4ee.
+
+Q6. Modify one line of the README.md, add to the staging area and
+commit. Then use the command git show HEAD, and explain the output.
+A6. The output after git show HEAD is the track of the commits done. The most recent one shows the difference
+made in the README.md, that is the previous version and the actual version (after modifying).
+
+Q7. Rewrite the sentence you restored with the previous command. After
+that, add the README.md to the staging area. Then, run a reset in the
+README.md and explain what happens.
+A7. We put git reset 7a3fc12 which corresponds to the last commit done and run the reset. We return to the
+README.md file and it has the sentence modified.
