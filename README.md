@@ -1,1 +1,1 @@
-adding a sentence in readme
+modifying a sentence in readme
