@@ -1,4 +1,4 @@
-
+package distancematrix;
 public class GP {
     private double xCoor;
     private double yCoor;
@@ -19,7 +19,7 @@ public class GP {
 		return Math.sqrt(Math.pow(xCoor-x2, 2) + Math.pow(yCoor-y2, 2));
     }
     public void printPoint() {
-        System.out.println( Double.toString(xCoor) + Double.toString(yCoor) );
+        System.out.println( Double.toString(xCoor) + " " + Double.toString(yCoor) );
     }
     
 }

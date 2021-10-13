@@ -1,3 +1,4 @@
+package distancematrix;
 public class TestPoint{
     public static void main( String[] args ) {
         GP p1 = new GP(1,1);
