@@ -1,26 +1,25 @@
-package distancematrix;
 
 public class GP {
-    private float xCoor;
-    private float yCoor;
+    private double xCoor;
+    private double yCoor;
 
-	public GP( float initx, float inity ) {
+	public GP( double initx, double inity ) {
         xCoor = initx;
         yCoor = inity;
     }
-	public float getx() {
+	public double getx() {
         return xCoor;
     }
-    public float gety() {
+    public double gety() {
         return yCoor;
     }
-    public float distance( GP p2 ) {
-        float x2 = p2.getx();
-	    float y2 = p2.gety();
-		return Math.sqrt(Math.pow(xCoor-x2) + Math.pow(yCoor-y2));
+    public double distance( GP p2 ) {
+        double x2 = p2.getx();
+	    double y2 = p2.gety();
+		return Math.sqrt(Math.pow(xCoor-x2, 2) + Math.pow(yCoor-y2, 2));
     }
-    public printPoint() {
-        system.out.println( str(xCoor) + str(yCoor) );
+    public void printPoint() {
+        System.out.println( Double.toString(xCoor) + Double.toString(yCoor) );
     }
     
 }
