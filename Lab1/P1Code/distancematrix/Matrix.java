@@ -11,8 +11,8 @@ public interface Matrix {
 		listOfCities.add( name );
 	}
 	public String getCityName( int index ) {
-		String city = listOfCities.get(index);
-		return city.name;
+		GP city = listOfCities.get(index);
+		return city.name; ////?
 	}
 	public int getNoOfCities() {
 		return listOfCities.size();
@@ -21,6 +21,9 @@ public interface Matrix {
 		
 	}
 	public double getDistance( int index1, int index2 ) {
-		
+		GP city1 = listOfCities.get(index1);
+		GP city2 = listOfCities.get(index2);
+		double dist1to2 = city1.distance(city2);
+		return dist1to2;	////?
 	}
 }
