@@ -7,23 +7,26 @@ public interface Matrix {
 
 	public void DistanceMatrix();
 	public void addCity( double x, double y, String name ) {
-		GP name = new GP( x, y );
-		listOfCities.add( name );
+		GP city = new GP( x, y, name);
+		listOfCities.add( city );
 	}
 	public String getCityName( int index ) {
 		GP city = listOfCities.get(index);
-		return city.name; ////?
+		return city.getName();
 	}
 	public int getNoOfCities() {
 		return listOfCities.size();
 	}
 	public void createDistanceMatrix() {
-		
+		int size = listOfCities.getNoOfCities();
+		for ( int i = 0; i < size; i++ ) {
+			listOfCities.get(index); ///incomplete
+		}	
 	}
 	public double getDistance( int index1, int index2 ) {
 		GP city1 = listOfCities.get(index1);
 		GP city2 = listOfCities.get(index2);
 		double dist1to2 = city1.distance(city2);
-		return dist1to2;	////?
+		return dist1to2;
 	}
 }
