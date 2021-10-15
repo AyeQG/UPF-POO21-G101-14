@@ -6,5 +6,5 @@ public class TestMatrix {
         listOfCities.addCity( 100, 200, "Barcelona");
         listOfCities.addCity( 200, 50, "Madrid");
     }
-
+    
 }
