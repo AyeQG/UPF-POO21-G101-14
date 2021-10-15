@@ -7,7 +7,7 @@ public class DistanceMatrix implements Matrix {
 
 	public void DistanceMatrix() {
         
-    };
+    }
 	public void addCity( double x, double y, String name ) {
 		GP city = new GP( x, y, name);
 		listOfCities.add( city );
