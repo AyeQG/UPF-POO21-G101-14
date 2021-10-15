@@ -20,7 +20,10 @@ public interface Matrix {
 	public void createDistanceMatrix() {
 		int size = listOfCities.getNoOfCities();
 		for ( int i = 0; i < size; i++ ) {
-			listOfCities.get(index); ///incomplete
+			for ( int j = 0; j < size; j++ ) {
+				double dist = getDistance(i, j);
+				matrix[i,j] = dist;
+			}
 		}	
 	}
 	public double getDistance( int index1, int index2 ) {
