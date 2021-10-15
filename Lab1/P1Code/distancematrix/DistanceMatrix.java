@@ -6,11 +6,12 @@ public class DistanceMatrix implements Matrix {
 	private LinkedList<GP> listOfCities;
 
 	public void DistanceMatrix() {
-        
+        LinkedList<GP> listOfCities = new LinkedList<GP>();
+        double[][] matrix;
     }
 	public void addCity( double x, double y, String name ) {
 		GP city = new GP( x, y, name);
-		listOfCities.add( city );
+		listOfCities.add( city );  //
 	}
 	public String getCityName( int index ) {
 		GP city = listOfCities.get(index);
@@ -21,10 +22,10 @@ public class DistanceMatrix implements Matrix {
 	}
 	public void createDistanceMatrix() {
 		int size = getNoOfCities();
-		for ( int i = 0; i < size; i++ ) {
-			for ( int j = 0; j < size; j++ ) {
-				double dist = getDistance(i, j);
-				matrix[i][j] = dist;
+		for ( int index1 = 0; index1 < size; index1++ ) {
+			for ( int index2 = 0; index2 < size; index2++ ) {
+				double dist = getDistance(index1, index2);
+				matrix[index1][index2] = dist;
 			}
 		}	
 	}
