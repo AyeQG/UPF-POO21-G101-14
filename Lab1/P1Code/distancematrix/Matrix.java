@@ -2,7 +2,7 @@ package distancematrix;
 import java.util.LinkedList;
 
 public interface Matrix {
-	public double[][] matrix;
+	public LinkedList<LinkedList<Double>> matrix;
 	public LinkedList<GP> listOfCities;
 
 	public void DistanceMatrix();
