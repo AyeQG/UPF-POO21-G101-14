@@ -1,7 +1,9 @@
 package distancematrix;
 
 public class TestDisplayMatrix {
-    DistanceMatrix matrix = new DistanceMatrix();
-    DisplayMatrix display = new DisplayMatrix( matrix );
-    display.@setVisible( true );
+    public static void main( String[] args ) {
+        DistanceMatrix matrix = new DistanceMatrix();
+        DisplayMatrix display = new DisplayMatrix( matrix );
+        display.setVisible( true );
+    }
 }

@@ -5,7 +5,7 @@ public class DistanceMatrix implements Matrix {
 	private LinkedList<LinkedList<Double>> matrix = new LinkedList<LinkedList<Double>>();
 	private LinkedList<GP> listOfCities = new LinkedList<GP>();
 
-	public void DistanceMatrix() {
+	public DistanceMatrix() {
     }
 	public void addCity( double x, double y, String name ) {
 		GP city = new GP( x, y, name );
