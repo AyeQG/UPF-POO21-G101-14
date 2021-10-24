@@ -1,14 +1,11 @@
 package distancematrix;
 import java.util.LinkedList;
-import java.util.*;
 
 public class DistanceMatrix implements Matrix {
-	private LinkedList<LinkedList<Double>> matrix;
-	private LinkedList<GP> listOfCities;
+	private LinkedList<LinkedList<Double>> matrix = new LinkedList<LinkedList<Double>>();
+	private LinkedList<GP> listOfCities = new LinkedList<GP>();
 
 	public void DistanceMatrix() {
-        listOfCities = new LinkedList<GP>();
-        matrix = new LinkedList<LinkedList<Double>>();
     }
 	public void addCity( double x, double y, String name ) {
 		GP city = new GP( x, y, name );
@@ -24,19 +21,14 @@ public class DistanceMatrix implements Matrix {
 	}
 	public void createDistanceMatrix() {
 		int size = getNoOfCities();
-		//for ( int index1 = 0; index1 < size; index1++ ) {
-			//for ( int index2 = 0; index2 < size; index2++ ) {
-				//double dist = getDistance(index1, index2);
-				//matrix<index1<index2>>.add(dist);
-			//}
-		//}
-        for(LinkedList<double> index1 : matrix) {
-            for(double index2 : index1) {
-                double dist = getDistance(index1, index2);
-                index1.add(index2, dist);
-				
-            }
-        }
+		LinkedList<Double> listDistance = new LinkedList<Double>();
+		for ( int index1 = 0; index1 < size; index1++ ) {
+			for ( int index2 = 0; index2 < size; index2++ ) {
+				double distance = getDistance( (size-1), index2 );
+				listDistance.add(distance);
+			}
+		}
+		matrix.add(listDistance);
 	}
 	public double getDistance( int index1, int index2 ) {
 		GP city1 = listOfCities.get(index1);

@@ -2,8 +2,8 @@ package distancematrix;
 import java.util.LinkedList;
 
 public interface Matrix {
-	public LinkedList<LinkedList<Double>> matrix;
-	public LinkedList<GP> listOfCities;
+	public LinkedList<LinkedList<Double>> matrix = new LinkedList<LinkedList<Double>>();
+	public LinkedList<GP> listOfCities = new LinkedList<GP>();
 
 	public void DistanceMatrix();
 	public void addCity( double x, double y, String name );
