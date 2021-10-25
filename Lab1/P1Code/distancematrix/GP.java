@@ -21,7 +21,9 @@ public class GP {
     public double distance( GP p2 ) {
         double x2 = p2.getx();
 	    double y2 = p2.gety();
-		return Math.sqrt(Math.pow(xCoor-x2, 2) + Math.pow(yCoor-y2, 2));
+        double dist = Math.sqrt(Math.pow(xCoor-x2, 2) + Math.pow(yCoor-y2, 2));
+        dist = Math.round( dist * 100d ) / 100d;
+		return dist;
     }
     public void printPoint() {
         System.out.println( name + ": " + Double.toString(xCoor) + " " + Double.toString(yCoor) );

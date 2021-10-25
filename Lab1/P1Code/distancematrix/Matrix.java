@@ -1,9 +1,6 @@
 package distancematrix;
 
-public interface Matrix {/*
-	public LinkedList<LinkedList<Double>> matrix = new LinkedList<LinkedList<Double>>();
-	public LinkedList<GP> listOfCities = new LinkedList<GP>();
-	public void DistanceMatrix();*/
+public interface Matrix {
 
 	public void addCity( double x, double y, String name );
 	public String getCityName( int index );
