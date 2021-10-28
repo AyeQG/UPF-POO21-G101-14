@@ -1,5 +1,4 @@
 import java.util.LinkedList;
-import java.awt.*;
 
 public class MyMap extends javax.swing.JPanel {
     private World myWorld;
