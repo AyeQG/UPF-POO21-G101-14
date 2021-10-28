@@ -11,30 +11,26 @@ public class PolygonalRegion {
     public double getArea() {
         double first = 0;
         double second = 0;
-        for ( int i = 0; i < ListP.size()-1; i++ ) {
-            first += (ListP.get(i)).getx() * (ListP.get(i+1)).gety();
-            second += (ListP.get(i)).gety() * (ListP.get(i+1)).getx();
+        for ( int i = 0; i < ListP.size()-1; i++ ) {                            // Convex Polygon Area:
+            first += (ListP.get(i)).getx() * (ListP.get(i+1)).gety();           // (x1*y2 + x2*y3 ...)
+            second += (ListP.get(i)).gety() * (ListP.get(i+1)).getx();          // (y1*x2 + y2*x3 ...)
         }
-        first += (ListP.get(ListP.size()-1)).getx() * (ListP.get(0)).gety();
-        second += (ListP.get(ListP.size()-1)).gety() * (ListP.get(0)).getx();
+        first += (ListP.get(ListP.size()-1)).getx() * (ListP.get(0)).gety();    // (... + xN*y1)
+        second += (ListP.get(ListP.size()-1)).gety() * (ListP.get(0)).getx();   // (... + yN*x1)
 
-        double area = 0.5 * (first - second);
+        double area = 0.5 * (first - second);   // (1/2) * [ (x1*y2 + x2*y3 ... + xN*y1) - (y1*x2 + y2*x3 ... + yN*x1) ]
         return area;
     }
     public void drawRegion( Graphics g ) {
-        int xList[];                         //declaring array for x-coordinates
-        xList = new int[ ListP.size() ];     //allocating memory
-
-        int yList[];                         //declaring array for x-coordinates
-        yList = new int[ ListP.size() ];     //allocating memory
+        int xList[];
+        xList = new int[ ListP.size() ];
+        int yList[];
+        yList = new int[ ListP.size() ];
 
         for ( int i = 0; i < ListP.size(); i++ ) {
             xList[i] = (ListP.get(i)).getx();
-            System.out.println(xList[i]);
             yList[i] = (ListP.get(i)).gety();
-            System.out.println(yList[i]);
         }
         g.drawPolygon( xList, yList, ListP.size() );
-
     }
 }
