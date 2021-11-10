@@ -15,7 +15,7 @@ public class City extends Point {
         if ( capital ) {
             g.setColor(Color.red);
             g.fillOval( x, y, 7, 7 );
-            g.setColor(Color.red);
+            g.setColor(Color.magenta);
             g.drawString( name , x, y );
         } else {
             g.setColor(Color.green);

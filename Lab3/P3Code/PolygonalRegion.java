@@ -31,6 +31,8 @@ public class PolygonalRegion {
             xList[i] = (ListP.get(i)).getx();
             yList[i] = (ListP.get(i)).gety();
         }
+        g.setColor(Color.white);
+        g.fillPolygon( xList, yList, ListP.size() );
         g.setColor(Color.black);
         g.drawPolygon( xList, yList, ListP.size() );
     }
