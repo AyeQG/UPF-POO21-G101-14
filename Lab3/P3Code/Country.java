@@ -41,7 +41,11 @@ public class Country extends PolygonalRegion {
     }
     public void drawCountry( Graphics g ) {
         for ( int i = 0; i < ListCities.size(); i++) {
-            (ListCities.get(i)).drawCity(g, (ListCities.get(i)).getx(), (ListCities.get(i)).gety());
+            boolean isCapital = false;
+            if ( (ListCities.get(i)).getName() == capital.getName() ) {
+                isCapital = true;
+            }
+            (ListCities.get(i)).drawCity( g, (ListCities.get(i)).getx(), (ListCities.get(i)).gety(), isCapital );
         }
     }
 }
