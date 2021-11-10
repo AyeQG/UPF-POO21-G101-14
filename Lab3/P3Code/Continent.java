@@ -3,9 +3,9 @@ import java.awt.*;
 
 
 public class Continent {
-    private LinkedList<PolygonalRegion> ListR = new LinkedList<PolygonalRegion>();
+    private LinkedList<Country> ListR = new LinkedList<Country>();
 
-    public Continent( LinkedList<PolygonalRegion> initList ) {
+    public Continent( LinkedList<Country> initList ) {
         ListR = initList;
     }
     public double getContinentArea() {
@@ -18,6 +18,7 @@ public class Continent {
     public void drawContinent( Graphics g ) {
         for ( int i = 0; i < ListR.size(); i++) {
             (ListR.get(i)).drawRegion(g);
+            (ListR.get(i)).drawCountry( g );
         }
     }
 }

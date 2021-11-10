@@ -13,7 +13,7 @@ public class City extends Point {
         return numhab;
     }
     public void drawCity( Graphics g, int x, int y ) {
-        g.fillOval( x, y, 1, 1 );
+        g.fillOval( x, y, 7, 7 );
         g.drawString( name , x, y );    /////name from where
     }
     

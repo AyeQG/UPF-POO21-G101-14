@@ -15,11 +15,11 @@ public class Point {
     public int gety() {
         return y;
     }
-    public String getname() {
+    public String getName() {
         return name;
     }
     public void printPoint() {
-        System.out.println( name + ":" + Integer.toString(x) + " " + Integer.toString(y) );
+        System.out.println( name + ": " + Integer.toString(x) + ", " + Integer.toString(y) );
     }
     
 }
