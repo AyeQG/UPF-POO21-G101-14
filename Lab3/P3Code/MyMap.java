@@ -22,7 +22,6 @@ public class MyMap extends javax.swing.JPanel {
         City c14 = new City( 290, 770, "Stomach", 700 );
         City c15 = new City( 150, 670, "Eye", 500 );
         
-
         LinkedList< Point > points1 = new LinkedList< Point >();    //REG 1
         points1.add( new Point( 10, 100 , "p11" ) );
         points1.add( new Point( 150, 10 , "p12" ) );
@@ -33,7 +32,6 @@ public class MyMap extends javax.swing.JPanel {
         Country reg1 = new Country( "Coffee", points1, c1 );
         reg1.addCity(c1);
         reg1.addCity(c2);
-
         
         LinkedList< Point > points2 = new LinkedList< Point >();    //REG 2
         points2.add( new Point( 150, 290 , "p21" ) );

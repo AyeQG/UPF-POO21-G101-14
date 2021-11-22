@@ -15,12 +15,14 @@ public class City extends Point {
         if ( capital ) {
             g.setColor(Color.red);
             g.fillOval( x, y, 7, 7 );
-            g.setColor(Color.magenta);
+            g.setColor(Color.blue);
+            g.setFont(new Font("AvantGarde", Font.PLAIN | Font.BOLD, 10));
             g.drawString( name , x, y );
         } else {
             g.setColor(Color.green);
             g.fillOval( x, y, 7, 7 );
             g.setColor(Color.blue);
+            g.setFont(new Font("AvantGarde", Font.PLAIN, 10));
             g.drawString( name , x, y );
         }
         g.setColor(Color.black);

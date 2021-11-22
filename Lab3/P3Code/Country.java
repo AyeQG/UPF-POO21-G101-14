@@ -6,12 +6,15 @@ public class Country extends PolygonalRegion {
     private LinkedList<City> ListCities = new LinkedList<City>();
     private LinkedList<Country> ListNeighbors = new LinkedList<Country>();
     private City capital;
+    private LinkedList<River> ListRivers = new LinkedList<River>();
+    private LinkedList<Lake> ListLakes = new LinkedList<Lake>();
 
-    public Country( String initName, LinkedList<Point> initListPoints, City initCapital ) {
-        super( initListPoints );
+    public Country( String initName, LinkedList<Point> initPoints, City initCapital, LinkedList<River> initRivers, LinkedList<Lake> initLakes ) {
+        super( initPoints );
         name = initName;
         capital = initCapital;
-
+        ListRivers = initRivers;
+        ListLakes = initLakes;
     }
     public String getName() {
         return name;
@@ -22,8 +25,14 @@ public class Country extends PolygonalRegion {
     public void addCity( City city ) {
         ListCities.add( city );
     }
-    public void addNeighbor( Country country) {
+    public void addNeighbor( Country country ) {
         ListNeighbors.add( country );
+    }
+    public void addRiver( River river ) {
+        ListRivers.add( river );
+    }
+    public void addLake( Lake lake ) {
+        ListLakes.add( lake );
     }
     public void printCities() {
         System.out.println("List of Cities: ");
@@ -39,6 +48,21 @@ public class Country extends PolygonalRegion {
         }
         System.out.println("");
     }
+    public void printRivers() {
+        System.out.println("List of Rivers: ");
+        for ( int i = 0; i < ListRivers.size(); i++) {
+            System.out.print((ListRivers.get(i)).getName() + ", ");
+        }
+        System.out.println("");
+    }
+    public void printLakes() {
+        System.out.println("List of Lakes: ");
+        for ( int i = 0; i < ListLakes.size(); i++) {
+            System.out.print((ListLakes.get(i)).getName() + ", ");
+        }
+        System.out.println("");
+    }
+    
     public void drawCountry( Graphics g ) {
         for ( int i = 0; i < ListCities.size(); i++) {
             boolean isCapital = false;
@@ -46,6 +70,12 @@ public class Country extends PolygonalRegion {
                 isCapital = true;
             }
             (ListCities.get(i)).drawCity( g, (ListCities.get(i)).getx(), (ListCities.get(i)).gety(), isCapital );
+        }
+        for ( int i = 0; i < ListRivers.size(); i++) {
+            (ListRivers.get(i)).drawRiver(g);
+        }
+        for ( int i = 0; i < ListLakes.size(); i++) {
+            (ListLakes.get(i)).drawLake( g, (ListLakes.get(i)).getx(), (ListLakes.get(i)).gety() );
         }
     }
 }

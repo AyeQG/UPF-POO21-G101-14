@@ -17,7 +17,7 @@ public class Continent {
     }
     public void drawContinent( Graphics g ) {
         for ( int i = 0; i < ListR.size(); i++) {
-            (ListR.get(i)).drawRegion(g);
+            (ListR.get(i)).drawRegion( g, ListR.get(i).getName());
             (ListR.get(i)).drawCountry(g);
         }
     }

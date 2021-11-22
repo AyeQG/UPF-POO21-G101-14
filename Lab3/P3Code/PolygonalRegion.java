@@ -21,19 +21,29 @@ public class PolygonalRegion {
         double area = 0.5 * (first - second);   // (1/2) * [ (x1*y2 + x2*y3 ... + xN*y1) - (y1*x2 + y2*x3 ... + yN*x1) ]
         return area;
     }
-    public void drawRegion( Graphics g ) {
+    public void drawRegion( Graphics g, String name ) {
         int xList[];
         xList = new int[ ListP.size() ];
         int yList[];
         yList = new int[ ListP.size() ];
-
+        int xmean = 0;
+        int ymean = 0;
         for ( int i = 0; i < ListP.size(); i++ ) {
             xList[i] = (ListP.get(i)).getx();
             yList[i] = (ListP.get(i)).gety();
+            xmean += (ListP.get(i)).getx();
+            ymean += (ListP.get(i)).gety();
         }
+        xmean = xmean / ListP.size();
+        ymean = ymean / ListP.size();
+
         g.setColor(Color.white);
         g.fillPolygon( xList, yList, ListP.size() );
         g.setColor(Color.black);
         g.drawPolygon( xList, yList, ListP.size() );
+
+        g.setColor(Color.black);
+        g.setFont(new Font ("TimesRoman", Font.BOLD | Font.ITALIC, 15));
+        g.drawString( name, xmean, ymean );
     }
 }
