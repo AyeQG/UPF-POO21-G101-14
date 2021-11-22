@@ -36,28 +36,32 @@ public class Country extends PolygonalRegion {
     }
     public void printCities() {
         System.out.println("List of Cities: ");
-        for ( int i = 0; i < ListCities.size(); i++) {
+        if ( this.ListCities == null ) { System.out.println( "There are no cities." ); }
+        else for ( int i = 0; i < ListCities.size(); i++) {
             System.out.print((ListCities.get(i)).getName() + ", ");
         }
         System.out.println("");
     }
     public void printNeighbors() {
         System.out.println("List of Neighbors: ");
-        for ( int i = 0; i < ListNeighbors.size(); i++) {
+        if ( this.ListNeighbors == null ) { System.out.println( "There are no neighbouring cities." ); }
+        else for ( int i = 0; i < ListNeighbors.size(); i++) {
             System.out.print((ListNeighbors.get(i)).getName() + ", ");
         }
         System.out.println("");
     }
     public void printRivers() {
         System.out.println("List of Rivers: ");
-        for ( int i = 0; i < ListRivers.size(); i++) {
+        if ( this.ListRivers == null ) { System.out.println( "There are no rivers." ); }
+        else for ( int i = 0; i < ListRivers.size(); i++) {
             System.out.print((ListRivers.get(i)).getName() + ", ");
         }
         System.out.println("");
     }
     public void printLakes() {
         System.out.println("List of Lakes: ");
-        for ( int i = 0; i < ListLakes.size(); i++) {
+        if ( this.ListLakes == null ) { System.out.println( "There are no lakes." ); }
+        else for ( int i = 0; i < ListLakes.size(); i++) {
             System.out.print((ListLakes.get(i)).getName() + ", ");
         }
         System.out.println("");

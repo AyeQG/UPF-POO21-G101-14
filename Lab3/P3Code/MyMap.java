@@ -1,4 +1,5 @@
 import java.util.LinkedList;
+import java.awt.*;
 
 public class MyMap extends javax.swing.JPanel {
     private World myWorld;
@@ -22,24 +23,45 @@ public class MyMap extends javax.swing.JPanel {
         City c14 = new City( 290, 770, "Stomach", 700 );
         City c15 = new City( 150, 670, "Eye", 500 );
         
-        LinkedList< Point > points1 = new LinkedList< Point >();    //REG 1
+        // REG 1
+        LinkedList< Point > points1 = new LinkedList< Point >();    
         points1.add( new Point( 10, 100 , "p11" ) );
         points1.add( new Point( 150, 10 , "p12" ) );
         points1.add( new Point( 290, 100 , "p13" ) );
         points1.add( new Point( 290, 200 , "p14" ) );
         points1.add( new Point( 150, 290 , "p15" ) );
         points1.add( new Point( 10, 200 , "p16" ) );
-        Country reg1 = new Country( "Coffee", points1, c1 );
+
+        LinkedList<River> rivers1 = new LinkedList<River>();
+        LinkedList<Lake> lakes1 = new LinkedList<Lake>();
+        
+        LinkedList<Point> riverpoints1 = new LinkedList<Point>();
+        riverpoints1.add( new Point(200, 170, null) );
+        riverpoints1.add( new Point(180, 200, null) );
+        riverpoints1.add( new Point(200, 220, null) );
+        rivers1.add( new River( riverpoints1, "Great River" ));
+        
+        Lake lake011 = new Lake(160, 240, "Great Lake", 40, 20);
+        Lake lake012 = new Lake(120, 140, "Dot Lake", 10, 20);
+        lakes1.add( lake011 );
+        lakes1.add( lake012 );
+
+        Country reg1 = new Country( "Coffee", points1, c1, rivers1, lakes1 );
         reg1.addCity(c1);
         reg1.addCity(c2);
         
-        LinkedList< Point > points2 = new LinkedList< Point >();    //REG 2
+        //REG 2
+        LinkedList< Point > points2 = new LinkedList< Point >();    
         points2.add( new Point( 150, 290 , "p21" ) );
         points2.add( new Point( 290, 200 , "p22" ) );
         points2.add( new Point( 430, 290 , "p23" ) );
         points2.add( new Point( 290, 390 , "p24" ) );
         points2.add( new Point( 150, 390 , "p25" ) );
-        Country reg2 = new Country( "Tomorrow", points2, c3 );
+
+        LinkedList<River> rivers2 = new LinkedList<River>();
+        LinkedList<Lake> lakes2 = new LinkedList<Lake>();
+        
+        Country reg2 = new Country( "Tomorrow", points2, c3, rivers2, lakes2 );
         reg2.addCity(c3);
 
         LinkedList< Point > points3 = new LinkedList< Point >();    //REG 3
@@ -47,7 +69,11 @@ public class MyMap extends javax.swing.JPanel {
         points3.add( new Point( 430, 290 , "p32" ) );
         points3.add( new Point( 290, 390 , "p33" ) );
         points3.add( new Point( 150, 390 , "p34" ) );
-        Country reg3 = new Country( "Yesterday", points3, c4 );
+
+        LinkedList<River> rivers3 = new LinkedList<River>();
+        LinkedList<Lake> lakes3 = new LinkedList<Lake>();
+
+        Country reg3 = new Country( "Yesterday", points3, c4, rivers3, lakes3 );
         reg3.addCity(c4);
 
         LinkedList< Point > points4 = new LinkedList< Point >();    //REG 4
@@ -57,17 +83,35 @@ public class MyMap extends javax.swing.JPanel {
         points4.add( new Point( 430, 390 , "p44" ) );
         points4.add( new Point( 570, 290 , "p45" ) );
         points4.add( new Point( 570, 200 , "p46" ) );
-        Country reg4 = new Country( "Mochi", points4, c5 );
+        
+        LinkedList<River> rivers4 = new LinkedList<River>();
+        LinkedList<Lake> lakes4 = new LinkedList<Lake>();
+
+        Country reg4 = new Country( "Mochi", points4, c5, rivers4, lakes4 );
         reg4.addCity(c5);
 
-        LinkedList< Point > points5 = new LinkedList< Point >();    //REG 5
+        //REG 5
+        LinkedList< Point > points5 = new LinkedList< Point >();    
         points5.add( new Point( 570, 200 , "p51" ) );
         points5.add( new Point( 570, 290 , "p52" ) );
         points5.add( new Point( 710, 480 , "p53" ) );
         points5.add( new Point( 850, 290 , "p54" ) );
         points5.add( new Point( 710, 200 , "p55" ) );
         points5.add( new Point( 710, 100 , "p56" ) );
-        Country reg5 = new Country( "Autumn", points5, c7 );
+        
+        LinkedList<River> rivers5 = new LinkedList<River>();
+        LinkedList<Lake> lakes5 = new LinkedList<Lake>();
+
+        LinkedList<Point> riverpoints5 = new LinkedList<Point>();
+        riverpoints5.add( new Point(600, 290, null) );
+        riverpoints5.add( new Point(680, 310, null) );
+        riverpoints5.add( new Point(710, 350, null) );
+        rivers5.add( new River( riverpoints5, "Pagee River" ));
+        
+        Lake lake021 = new Lake(600, 200, "Grand Leaf", 60, 80);
+        lakes5.add( lake021 );
+
+        Country reg5 = new Country( "Autumn", points5, c7, rivers5, lakes5 );
         reg5.addCity(c6);
         reg5.addCity(c7);
         
@@ -76,7 +120,11 @@ public class MyMap extends javax.swing.JPanel {
         points6.add( new Point( 710, 480 , "p62" ) );
         points6.add( new Point( 850, 580 , "p63" ) );
         points6.add( new Point( 990, 480 , "p64" ) );
-        Country reg6 = new Country( "Paradise", points6, c81 );
+
+        LinkedList<River> rivers6 = new LinkedList<River>();
+        LinkedList<Lake> lakes6 = new LinkedList<Lake>();
+        
+        Country reg6 = new Country( "Paradise", points6, c81, rivers6, lakes6 );
         reg6.addCity(c8);
         reg6.addCity(c81);
 
@@ -85,21 +133,33 @@ public class MyMap extends javax.swing.JPanel {
         points7.add( new Point( 570, 670 , "p72" ) );
         points7.add( new Point( 430, 770 , "p73" ) );
         points7.add( new Point( 710, 670 , "p74" ) );
-        Country reg7 = new Country( "Moon", points7, c11 );
+
+        LinkedList<River> rivers7 = new LinkedList<River>();
+        LinkedList<Lake> lakes7 = new LinkedList<Lake>();
+
+        Country reg7 = new Country( "Moon", points7, c11, rivers7, lakes7 );
         reg7.addCity(c11);
         
         LinkedList< Point > points8 = new LinkedList< Point >();    //REG 8
         points8.add( new Point( 710, 770 , "p81" ) );
         points8.add( new Point( 710, 860 , "p82" ) );
         points8.add( new Point( 850, 770 , "p83" ) );
-        Country reg8 = new Country( "Island", points8, c10 );
+
+        LinkedList<River> rivers8 = new LinkedList<River>();
+        LinkedList<Lake> lakes8 = new LinkedList<Lake>();
+
+        Country reg8 = new Country( "Island", points8, c10, rivers8, lakes8 );
         reg8.addCity(c10);
 
         LinkedList< Point > points9 = new LinkedList< Point >();    //REG 9
         points9.add( new Point( 710, 770 , "p91" ) );
         points9.add( new Point( 850, 670 , "p92" ) );
         points9.add( new Point( 990, 770 , "p93" ) );
-        Country reg9 = new Country( "Bermuda", points9, c9 );
+
+        LinkedList<River> rivers9 = new LinkedList<River>();
+        LinkedList<Lake> lakes9 = new LinkedList<Lake>();
+
+        Country reg9 = new Country( "Bermuda", points9, c9, rivers9, lakes9 );
         reg9.addCity(c9);
 
         LinkedList< Point > points10 = new LinkedList< Point >();    //REG 10
@@ -107,7 +167,11 @@ public class MyMap extends javax.swing.JPanel {
         points10.add( new Point( 570, 960 , "p102" ) );
         points10.add( new Point( 710, 960 , "p103" ) );
         points10.add( new Point( 570, 860 , "p104" ) );
-        Country reg10 = new Country( "Wings", points10, c12 );
+
+        LinkedList<River> rivers10 = new LinkedList<River>();
+        LinkedList<Lake> lakes10 = new LinkedList<Lake>();
+
+        Country reg10 = new Country( "Wings", points10, c12, rivers10, lakes10 );
         reg10.addCity(c12);
 
         LinkedList< Point > points11 = new LinkedList< Point >();    //REG 11
@@ -119,7 +183,11 @@ public class MyMap extends javax.swing.JPanel {
         points11.add( new Point( 710, 670 , "p116" ) );
         points11.add( new Point( 430, 770 , "p117" ) );
         points11.add( new Point( 150, 580 , "p118" ) );
-        Country reg11 = new Country( "Whale", points11, c15 );
+
+        LinkedList<River> rivers11 = new LinkedList<River>();
+        LinkedList<Lake> lakes11 = new LinkedList<Lake>();
+        
+        Country reg11 = new Country( "Whale", points11, c15, rivers11, lakes11 );
         reg11.addCity(c13);
         reg11.addCity(c14);
         reg11.addCity(c15);
@@ -164,6 +232,7 @@ public class MyMap extends javax.swing.JPanel {
     }
 
     public void paint( java.awt.Graphics g ) {
+        setBackground(Color.blue);
         super.paint( g );
         myWorld.drawWorld( g );
 

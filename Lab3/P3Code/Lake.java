@@ -15,10 +15,8 @@ public class Lake extends Point {
         g.fillOval( x, y, width, height );
         
         g.setColor(Color.magenta);
-        g.setFont(new Font("AvantGarde", Font.PLAIN, 8));
+        g.setFont(new Font("TimesRoman", Font.PLAIN, 10));
         g.drawString( name , x, y );
-        
-        
     }
     
 }

@@ -33,7 +33,7 @@ public class River {
         g.drawPolyline( xList, yList, ListP.size() );
 
         g.setColor(Color.magenta);
-        g.setFont(new Font ("AvantGarde", Font.PLAIN | Font.BOLD, 8));
+        g.setFont(new Font ("TimesRoman", Font.PLAIN, 10));
         g.drawString( name, xmean, ymean );
     }
     
