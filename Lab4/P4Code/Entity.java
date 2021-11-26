@@ -8,8 +8,8 @@ abstract public class Entity {
 		lineColor = lcinit;
 	}
 
-	abstract public void draw( java.awt.Graphics g );
+	abstract public void draw( Graphics g );
 
-	abstract public void translate( int dx, int dy );
+	abstract public void move( int dx, int dy );
 	
 }

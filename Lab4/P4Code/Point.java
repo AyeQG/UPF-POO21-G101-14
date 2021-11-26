@@ -16,12 +16,14 @@ public class Point {
     public void printPoint() {
         System.out.println( Integer.toString(x) + " " + Integer.toString(y) );
     }
-    public Point move( int movex, int movey ) {
-        Point newp = new Point( x + movex, y + movey );
-        return newp;
+    public void move( int movex, int movey ) {
+        x += movex;
+        y += movey;
+        //Point newp = new Point( x + movex, y + movey );
+        //return newp;
     }
-    public Vector difference( int xi, int yi ) {
-        Vector vec = new Vector( x-xi, y-yi );
+    public Vector difference( Point q ) {
+        Vector vec = new Vector( x-q.getx(), y-q.gety() );
         return vec;
     }
     

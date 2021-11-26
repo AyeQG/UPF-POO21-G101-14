@@ -4,7 +4,8 @@ public class Vector {
     private int y;
 
     public Vector( int xi, int yi ) {
-        x = xi; y = yi;
+        x = xi;
+        y = yi;
     }
     public int getx() {
         return x;

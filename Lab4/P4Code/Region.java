@@ -2,20 +2,20 @@ import java.util.LinkedList;
 import java.awt.*;
 import java.awt.Graphics;
 
-public abstract class Region {
-    protected Color fillColor;
+abstract public class Region extends Entity {
+    private Color fillColor;
 
-    public Region() {
-
+    public Region( Color lineC, Color fillC ) {
+        super ( lineC );
+        fillColor = fillC;
     }
-    public abstract double getArea() {
 
-    }
+    abstract public double getArea();
     public void setFillColor( Color c ) {
 
     }
-    public abstract boolean isPointInside( Point p ) {
-
-    }
+    abstract public void move( int movex, int movey );
+    abstract public boolean isPointInside( Point p );
+    abstract public void draw( Graphics g );
 
 }
