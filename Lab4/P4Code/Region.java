@@ -1,5 +1,3 @@
-import java.util.LinkedList;
-import java.awt.*;
 import java.awt.Graphics;
 
 abstract public class Region extends Entity {

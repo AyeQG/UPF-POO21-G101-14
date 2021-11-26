@@ -18,7 +18,7 @@ public class RectangularRegion extends PolygonalRegion {
     }
     public void print() {
         for (Point point : ListP) {
-            System.out.println( "("+ point.getx() +","+ point.gety() +")" );
+            System.out.println( "( "+ point.getx() +", "+ point.gety() +" )" );
         }
     }
 }

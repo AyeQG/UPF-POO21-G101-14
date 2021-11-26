@@ -1,8 +1,6 @@
 import java.util.LinkedList;
 import java.awt.*;
 import java.awt.Graphics;
-import java.lang.Math.*;
-
 
 public class EllipsoidalRegion extends Region{
     private Point c;

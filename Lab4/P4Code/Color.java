@@ -2,7 +2,6 @@ import java.util.LinkedList;
 import java.awt.*;
 import java.awt.Graphics;
 
-
 public class Color {
     private double x; //r, h
     private double y; //g, s
