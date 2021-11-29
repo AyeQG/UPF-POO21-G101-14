@@ -16,9 +16,9 @@ public class EllipsoidalRegion extends Region{
         return Math.PI*r1*r2;
     }
     public void draw( Graphics g /*, String name*/ ) {
-        g.setColor(Color fillC );
+        g.setColor( fillColor );
         g.fillOval( c.getx(), c.gety(), r1, r2 );
-        g.setColor(Color lineC );
+        g.setColor( lineColor );
         g.drawOval( c.getx(), c.gety(), r1, r2 );
         
         /*g.setColor(Color );
@@ -28,9 +28,9 @@ public class EllipsoidalRegion extends Region{
     public void move( int movex, int movey ) {
 
     }
-    public boolean isSelected( Point p ) {
+    /*public boolean isSelected( Point p ) {
 
-    }
+    }*/
     public boolean isPointInside( Point p ) {
         /**FORMULA is as follows:
          * ( (px-cx)^2 / a^2 ) + ( (py-cy)^2 / b^2 ) <= 1 */

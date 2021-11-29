@@ -38,10 +38,11 @@ public class PolygonalRegion extends Region {
         }
         xmean = xmean / ListP.size();
         ymean = ymean / ListP.size();
+        
 
-        g.setColor(Color fillC );
+        g.setColor( fillColor );
         g.fillPolygon( xList, yList, ListP.size() );
-        g.setColor(Color lineC );
+        g.setColor( lineColor );
         g.drawPolygon( xList, yList, ListP.size() );
 
         /*g.setColor(Color );
@@ -53,9 +54,9 @@ public class PolygonalRegion extends Region {
             //
         }
     }
-    public boolean isSelected( Point p ) {
+    /*public boolean isSelected( Point p ) {
 
-    }
+    }*/
     public boolean isPointInside( Point p ) {
         double cp = 0;
 
