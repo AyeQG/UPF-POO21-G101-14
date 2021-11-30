@@ -10,6 +10,7 @@ public class TriangularRegion extends PolygonalRegion {
         ListP.add( p2 );
         ListP.add( p3 );
     }
+    
     public void print() {
         for (Point point : ListP) {
             System.out.println( "( "+ point.getx() +", "+ point.gety() +" )" );

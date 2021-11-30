@@ -16,11 +16,4 @@ abstract public class Color extends java.awt.Color {
         super( xi , yi, zi);
         x = xi; y = yi; z = zi; isRGB = isrgb;
     }
-    public void print() {
-        if ( isRGB ) {
-            System.out.println( "RGB: (" + x + ", " + y + ", " + z + ")" );
-        } else {
-            System.out.println( "HSV: (" + x + ", " + y + ", " + z + ")" );
-        }
-    }
 }

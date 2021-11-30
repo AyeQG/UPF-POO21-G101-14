@@ -14,4 +14,8 @@ public class Vector {
     public double crossProduct ( Vector v2 ) {
         return x*v2.gety() - y* v2.getx();
     }
+
+    public void print() {
+        System.out.println( Integer.toString(x) + " " + Integer.toString(y) );
+    }
 }

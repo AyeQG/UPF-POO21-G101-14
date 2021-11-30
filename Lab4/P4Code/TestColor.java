@@ -1,5 +1,3 @@
-import java.util.LinkedList;
-import java.util.Arrays;
 
 public class TestColor {
     public static void main( String[] args ) {
@@ -32,12 +30,24 @@ public class TestColor {
 
         HSVColor red2hsv = red2rgb.toHSV();     // rgb to hsv
         red2hsv.print();
-        Point p1 = new Point( 20,20 );
-        Point p2 = new Point( 30,20 );
-        Point p3 = new Point( 25,20 );
-        LinkedList<Point> lp = new LinkedList<Point>( Arrays.asList(p1, p2, p3) );
-        for (Point point : lp) {
-            System.out.println( "( "+ point.getx() +", "+ point.gety() +" )" );
-        }
+        
+        /**
+         * TestOptional
+         * From this point on, we test other classes such as
+         * Point, Vector, TriangularRegion, CircularRegion
+         * to check if the selection tool works.
+         */
+
+        Point p = new Point(10, 10);
+        Point q = new Point(30, 10);
+        Vector diff = p.difference(q);
+        diff.print();
+
+        TriangularRegion triReg = new TriangularRegion( red, red, new Point( 310, 370 ), new Point( 410, 370 ), new Point( 360, 270 ));
+        System.out.println( triReg.isPointInside( new Point( 360, 320 )) );
+        
+        CircularRegion cirReg = new CircularRegion( red, red, new Point( 110, 300 ), 40);
+        System.out.println( cirReg.isPointInside( new Point( 110, 300 )) );
+        System.out.println( cirReg.isPointInside( new Point( 510, 700 )) );
     }
 }

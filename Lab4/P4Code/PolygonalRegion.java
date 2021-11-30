@@ -10,6 +10,7 @@ public class PolygonalRegion extends Region {
     }
 
     public double getArea() {
+        //FORMULA: (1/2) * [ (x1*y2 + x2*y3 ... + xN*y1) - (y1*x2 + y2*x3 ... + yN*x1) ]
         double first = 0;
         double second = 0;
         for ( int i = 0; i < ListP.size()-1; i++ ) {                            // Convex Polygon Area:
@@ -19,7 +20,7 @@ public class PolygonalRegion extends Region {
         first += (ListP.get(ListP.size()-1)).getx() * (ListP.get(0)).gety();    // (... + xN*y1)
         second += (ListP.get(ListP.size()-1)).gety() * (ListP.get(0)).getx();   // (... + yN*x1)
 
-        double area = 0.5 * (first - second);   // (1/2) * [ (x1*y2 + x2*y3 ... + xN*y1) - (y1*x2 + y2*x3 ... + yN*x1) ]
+        double area = 0.5 * (first - second);
         return area;
     }
 
@@ -51,27 +52,31 @@ public class PolygonalRegion extends Region {
         }
     }
 
-    /*public boolean isSelected( Point p ) {
-
-    }*/
+    public boolean isSelected( Point p ) {
+        if ( isPointInside(p) ) { return true; }
+        else return false;
+    }
 
     public boolean isPointInside( Point p ) {
-        double cp = 0;
+        double cp = 0; //cross-product initialized as 0 (no sign)
 
-        for ( int i = 0; i < ListP.size()-1/** */; i++ ) {
+        //check for each pair of vectors of the polygon
+        for ( int i = 0; i < ListP.size()-1; i++ ) {
             Vector v1 = ListP.get(i+1).difference( ListP.get(i) ); //(q2-q1)
             Vector v2 = p.difference( ListP.get(i) );              //(p -q1)
-            double newcp = v1.crossProduct(v2);
-
+            double newcp = v1.crossProduct(v2);             //(q2-q1)x(p -q1)
+            
+            // check the sign of the cross-product
             if ( cp < 0 & newcp > 0 ) { return false; }
             else if ( cp > 0 & newcp < 0 ) { return false; }
             else cp = newcp;
         }
-        // to check for the last vector (qn-q1):
-        Vector v1 = ListP.get( ListP.size() ).difference( ListP.get(0) ); //(qn-q1)
-        Vector v2 = p.difference( ListP.get(0) );                         //(p -q1)
-        double newcp = v1.crossProduct(v2);
+        //check the last vector (qn-q1):
+        Vector v1 = ListP.get(0).difference( ListP.get( ListP.size()-1 ) ); //(qn-q1)
+        Vector v2 = p.difference( ListP.get(0) );                           //(p -q1)
+        double newcp = v1.crossProduct(v2);                         //(qn-q1)x(p -q1)
         
+        // check the sign of the cross-product
         if ( cp < 0 & newcp > 0 ) { return false; }
         else if ( cp > 0 & newcp < 0 ) { return false; }
         return true;

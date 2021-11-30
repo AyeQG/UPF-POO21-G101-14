@@ -9,10 +9,9 @@ public class Point {
     }
 
 	public int getx() { return x; }
-    public int gety() { return y; 
-    }
+    public int gety() { return y; }
 
-    public void printPoint() {
+    public void print() {
         System.out.println( Integer.toString(x) + " " + Integer.toString(y) );
     }
 

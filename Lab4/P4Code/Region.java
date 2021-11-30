@@ -7,12 +7,10 @@ abstract public class Region extends Entity {
         super ( lcinit );
         fillColor = fcinit;
     }
-    public void setFillColor( Color c ) {
-        fillColor = c;
-    }
-    public Color getFillColor() {
-		return fillColor;
-	}
+
+    public void setFillColor( Color c ) { fillColor = c; }
+    public Color getFillColor() { return fillColor; }
+
     abstract public double getArea();
     abstract public void translate( int movex, int movey );
     abstract public boolean isPointInside( Point p );

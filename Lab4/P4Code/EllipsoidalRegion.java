@@ -16,10 +16,12 @@ public class EllipsoidalRegion extends Region{
     }
 
     public void draw( Graphics g ) {
-        //Graphics draw ovals starting from the upper left corner
-        //therefore we substract the radius.
-        //The 3rd and 4th parameters are the width and height diameters
-        //so we multiply by 2 the radius.
+        /**
+         * Graphics draw ovals starting from the upper left corner
+         * therefore we substract the radius.
+         * The 3rd and 4th parameters are the width and height diameters
+         * so we multiply the radius by 2.
+         */
         g.setColor( fillColor );
         g.fillOval( c.getx()-r1/2, c.gety()-r2/2, r1*2, r2*2 );
         g.setColor( lineColor );
@@ -30,16 +32,15 @@ public class EllipsoidalRegion extends Region{
         c.translate(dx, dy);
     }
 
-    /*public boolean isSelected( Point p ) {
-
-    }*/
+    public boolean isSelected( Point p ) {
+        if ( isPointInside(p) ) { return true; }
+        else return false;
+    }
 
     public boolean isPointInside( Point p ) {
-        /**FORMULA is as follows:
-         * ( (px-cx)^2 / a^2 ) + ( (py-cy)^2 / b^2 ) <= 1
-         */
-        double xa = (p.getx() - c.getx())^2 / r1^2; // (px-cx)^2 / a^2
-        double yb = (p.gety() - c.gety())^2 / r2^2; // (py-cy)^2 / b^2
+        //FORMULA: (px-cx)^2 / a^2 ) + ( (py-cy)^2 / b^2 ) <= 1
+        double xa = Math.pow(p.getx()-c.getx(), 2) / Math.pow(r1*2, 2); // (px-cx)^2 / a^2
+        double yb = Math.pow(p.gety()-c.gety(), 2) / Math.pow(r2*2, 2); // (py-cy)^2 / b^2
         if ( xa + yb <= 1 ) { return true; }
         else return false;
     }
