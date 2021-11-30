@@ -18,6 +18,7 @@ public class PolygonalRegion extends Region {
 
     public double getArea() {
         //FORMULA: (1/2) * [ (x1*y2 + x2*y3 ... + xN*y1) - (y1*x2 + y2*x3 ... + yN*x1) ]
+        
         double first = 0;
         double second = 0;
         for ( int i = 0; i < ListP.size()-1; i++ ) {                            // Convex Polygon Area:

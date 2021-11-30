@@ -2,26 +2,23 @@
 
 public class HSVColor extends Color{
     private float h, s, v;
+
     /**
-     * R [0,255] 8bits  Intensity of red    (black to white)
-     * G [0,255] 8bits  Intensity of green  (black to white)
-     * B [0,255] 8bits  Intensity of blue   (black to white)
-     * --
-     * H [0,360] degree Hue
-     * S [0,1]          Saturation          (bright to dark)
-     * V [0,1]          Value               (black to white)
-    */
-    
+     * @param hi float [0,1] hue value of hsv model
+     * @param si float [0,1] saturation value of hsv model
+     * @param vi float [0,1] value or brightness value of hsv model
+     */
     public HSVColor( float hi, float si, float vi ) {
-        super( getHSBColor( hi, si, vi ).getRed(), getHSBColor( hi, si, vi ).getGreen(), getHSBColor( hi, si, vi ).getBlue(), false );
+        super( getHSBColor( hi, si, vi ).getRed(),
+        getHSBColor( hi, si, vi ).getGreen(),
+        getHSBColor( hi, si, vi ).getBlue(), false );
         h = hi; s = si; v = vi;
     }
-
+    /**
+     * We will use the function getHSBColor() which given the values of
+     * an HSB color model returns a Color with the equivalent RGB values.
+     */
     public RGBColor toRGB() {
-        /**
-         * We will use the function getHSBColor() which given the values of
-         * an HSB color model returns a Color with the equivalent RGB values.
-         */
         java.awt.Color hsvtorgb = getHSBColor( h, s, v );
         int r = hsvtorgb.getRed();
         int g = hsvtorgb.getGreen();

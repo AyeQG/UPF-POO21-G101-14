@@ -45,9 +45,11 @@ public class TestColor {
         diff.print();
 
         TriangularRegion triReg = new TriangularRegion( red, red, new Point( 310, 370 ), new Point( 410, 370 ), new Point( 360, 270 ));
+        triReg.print();
         System.out.println( triReg.isPointInside( new Point( 360, 320 )) );
         
         CircularRegion cirReg = new CircularRegion( red, red, new Point( 110, 300 ), 40);
+        cirReg.print();
         System.out.println( cirReg.isPointInside( new Point( 110, 300 )) );
         System.out.println( cirReg.isPointInside( new Point( 510, 700 )) );
     }

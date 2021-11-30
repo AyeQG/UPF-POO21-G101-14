@@ -6,5 +6,7 @@ public class TriangularRegion extends PolygonalRegion {
     public TriangularRegion( Color lcinit, Color fcinit, Point p1, Point p2, Point p3 ) {
         super( lcinit, fcinit, new LinkedList<Point>( Arrays.asList(p1, p2, p3) ));
     }
-    
+
+    //the area of this triangular region will be computed in its parent class
+    //PolygonalRegion.getArea()
 }

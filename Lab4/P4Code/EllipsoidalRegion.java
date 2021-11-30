@@ -12,8 +12,9 @@ public class EllipsoidalRegion extends Region{
     }
 
     public void print() {
-        System.out.println( "center = ( "+ c.getx() +", "+ c.gety() +" )" );
-        System.out.println( "width = "+ r1 + ", height = "+ r2 );
+        System.out.println("Ellipsoidal Region: ");
+        System.out.println( "> center = ( "+ c.getx() +", "+ c.gety() +" )" );
+        System.out.println( "> width = "+ r1 + ", height = "+ r2 );
     }
 
     public double getArea() {
@@ -44,6 +45,7 @@ public class EllipsoidalRegion extends Region{
 
     public boolean isPointInside( Point p ) {
         //FORMULA: (px-cx)^2 / a^2 ) + ( (py-cy)^2 / b^2 ) <= 1
+        
         double xa = Math.pow(p.getx()-c.getx(), 2) / Math.pow(r1*2, 2); // (px-cx)^2 / a^2
         double yb = Math.pow(p.gety()-c.gety(), 2) / Math.pow(r2*2, 2); // (py-cy)^2 / b^2
         if ( xa + yb <= 1 ) { return true; }
