@@ -12,7 +12,7 @@ public class Point {
     public int gety() { return y; }
 
     public void print() {
-        System.out.println( Integer.toString(x) + " " + Integer.toString(y) );
+        System.out.println( "Point: ("+ Integer.toString(x) + ", " + Integer.toString(y) +")");
     }
 
     public void translate( int dx, int dy ) {

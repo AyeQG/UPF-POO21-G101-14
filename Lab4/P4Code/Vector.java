@@ -16,6 +16,6 @@ public class Vector {
     }
 
     public void print() {
-        System.out.println( Integer.toString(x) + " " + Integer.toString(y) );
+        System.out.println( "Vector: ("+ Integer.toString(x) + ", " + Integer.toString(y) +")" );
     }
 }

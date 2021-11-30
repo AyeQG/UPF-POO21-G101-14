@@ -11,6 +11,11 @@ public class EllipsoidalRegion extends Region{
         r2 = initr2;
     }
 
+    public void print() {
+        System.out.println( "center = ( "+ c.getx() +", "+ c.gety() +" )" );
+        System.out.println( "width = "+ r1 + ", height = "+ r2 );
+    }
+
     public double getArea() {
         return Math.PI*r1*r2;
     }

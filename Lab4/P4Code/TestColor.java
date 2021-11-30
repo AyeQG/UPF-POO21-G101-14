@@ -37,7 +37,8 @@ public class TestColor {
          * Point, Vector, TriangularRegion, CircularRegion
          * to check if the selection tool works.
          */
-
+        System.out.println("");
+        
         Point p = new Point(10, 10);
         Point q = new Point(30, 10);
         Vector diff = p.difference(q);

@@ -9,6 +9,13 @@ public class PolygonalRegion extends Region {
         ListP = lp;
     }
 
+    public void print() {
+        System.out.println("Polygonal Region: ");
+        for (Point point : ListP) {
+            System.out.println( "> ( "+ point.getx() +", "+ point.gety() +" )" );
+        }
+    }
+
     public double getArea() {
         //FORMULA: (1/2) * [ (x1*y2 + x2*y3 ... + xN*y1) - (y1*x2 + y2*x3 ... + yN*x1) ]
         double first = 0;
