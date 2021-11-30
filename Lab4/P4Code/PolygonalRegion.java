@@ -1,15 +1,14 @@
 import java.util.LinkedList;
-import java.util.List;
-import java.awt.*;
 import java.awt.Graphics;
 
 public class PolygonalRegion extends Region {
     private LinkedList<Point> ListP;
 
-    public PolygonalRegion( Color lineC, Color fillC, LinkedList<Point> lp ) {
-        super( lineC, fillC );
+    public PolygonalRegion( Color lcinit, Color fcinit, LinkedList<Point> lp ) {
+        super( lcinit, fcinit );
         ListP = lp;
     }
+
     public double getArea() {
         double first = 0;
         double second = 0;
@@ -23,7 +22,8 @@ public class PolygonalRegion extends Region {
         double area = 0.5 * (first - second);   // (1/2) * [ (x1*y2 + x2*y3 ... + xN*y1) - (y1*x2 + y2*x3 ... + yN*x1) ]
         return area;
     }
-    public void draw( Graphics g /*, String name*/ ) {
+
+    public void draw( Graphics g ) {
         int xList[];
         xList = new int[ ListP.size() ];
         int yList[];
@@ -39,24 +39,22 @@ public class PolygonalRegion extends Region {
         xmean = xmean / ListP.size();
         ymean = ymean / ListP.size();
         
-
         g.setColor( fillColor );
         g.fillPolygon( xList, yList, ListP.size() );
         g.setColor( lineColor );
         g.drawPolygon( xList, yList, ListP.size() );
-
-        /*g.setColor(Color );
-        g.setFont(new Font ("TimesRoman", Font.BOLD | Font.ITALIC, 15));
-        g.drawString( name, xmean, ymean );*/
     }
-    public void move( int movex, int movey ) {
-        for ( int i = 0; i < ListP.size(); i++ ) {
-            //
+
+    public void translate( int dx, int dy ) {
+        for ( Point point: ListP ) {
+            point.translate(dx, dy);
         }
     }
+
     /*public boolean isSelected( Point p ) {
 
     }*/
+
     public boolean isPointInside( Point p ) {
         double cp = 0;
 

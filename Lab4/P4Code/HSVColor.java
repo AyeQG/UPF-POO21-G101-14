@@ -30,6 +30,6 @@ public class HSVColor extends Color{
     }
     
     public void print() {
-        System.out.println( "RGB: (" + h + ", " + s + ", " + v + ")" );
+        System.out.println( "HSV: (" + h + ", " + s + ", " + v + ")" );
     }
 }

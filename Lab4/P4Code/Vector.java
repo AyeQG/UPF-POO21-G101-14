@@ -7,12 +7,10 @@ public class Vector {
         x = xi;
         y = yi;
     }
-    public int getx() {
-        return x;
-    }
-    public int gety() {
-        return y;
-    }
+    
+    public int getx() { return x; }
+    public int gety() { return y; }
+
     public double crossProduct ( Vector v2 ) {
         return x*v2.gety() - y* v2.getx();
     }

@@ -22,6 +22,6 @@ public class DrawPanel extends JPanel {
 
 	public void translate( int dx, int dy ) {
 		for ( int i = 0; i < drawables.size(); ++i )
-			drawables.get( i ).move( dx, dy );
+			drawables.get( i ).translate( dx, dy );
 	}
 }

@@ -1,5 +1,4 @@
-import java.lang.Math;
- 
+
 abstract public class Color extends java.awt.Color {
     protected int x, y, z;
     protected boolean isRGB;
@@ -12,7 +11,7 @@ abstract public class Color extends java.awt.Color {
      * S [0,1]          Saturation          (bright to dark)
      * V [0,1]          Value               (black to white)
     */
-   
+    
     public Color( int xi, int yi, int zi, boolean isrgb ) {
         super( xi , yi, zi);
         x = xi; y = yi; z = zi; isRGB = isrgb;
