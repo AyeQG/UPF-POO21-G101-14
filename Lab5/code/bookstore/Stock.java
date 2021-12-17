@@ -1,4 +1,4 @@
-
+//package bookstore;
 
 public class Stock implements StockInterface {
     private Book book;
