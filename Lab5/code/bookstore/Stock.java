@@ -21,6 +21,6 @@ public class Stock implements StockInterface {
         copies -= numberOfCopies;
     }
 	public double totalPrice() {
-        return copies*price; //
+        return (int)copies*price; //
     }
 }

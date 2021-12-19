@@ -1,4 +1,5 @@
 //package bookstore;
+import java.util.*;
 
 public class ShoppingCart extends BookCollection implements ShoppingCartInterface{
     private Catalog catalog;
@@ -8,7 +9,7 @@ public class ShoppingCart extends BookCollection implements ShoppingCartInterfac
         catalog = cati;
     }
     public void addCopies( int numberOfCopies, String booktitle ) {
-        catalog.removeCopies(numberOfCopies, booktitle);
+        catalog.addCopies(numberOfCopies, booktitle);
         super.addCopies(numberOfCopies, booktitle); //
     }
 
@@ -19,15 +20,19 @@ public class ShoppingCart extends BookCollection implements ShoppingCartInterfac
 
     public double totalPrice() {
         int totalPrice = 0;
-        String[] booktitles = catalog.booktitles();
-        catalog<get.Book()>
-        for (String book : booktitles) {
-            int copies = catalog.numberOfCopies( book );
-            totalPrice += copies*book
-
-        }
+        //String[] booktitles = catalog.booktitles();
+        LinkedList< Stock > stockList = catalog.getCatalog();
+        //for ( String booktitle : booktitles ) { //String book : booktitles
+            //int copies = catalog.numberOfCopies( booktitle );
+            for ( Stock stock : stockList ) {
+                //if ( stock.getBooktitle() == booktitle ) {
+                    totalPrice += stock.totalPrice();
+                //}
+            }
+        //}
+        return totalPrice;
     }
 	public String checkout() {
-
+        
     }
 }
