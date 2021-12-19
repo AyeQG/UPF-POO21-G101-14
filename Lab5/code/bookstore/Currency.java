@@ -1,5 +1,5 @@
 //package bookstore;
-
+/*
 public class Currency {
     private String currency;
 
@@ -7,3 +7,4 @@ public class Currency {
         currency = c;
     }
 }
+*/

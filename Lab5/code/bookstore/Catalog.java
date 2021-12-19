@@ -1,8 +1,9 @@
 //package bookstore;
 import java.util.*;
+import java.util.Currency;
 
 public class Catalog extends BookCollection {
-    private LinkedList< Stock > cata;
+    //private LinkedList< Stock > cata;
 
     public Catalog( String filename ) {
         super();
@@ -21,16 +22,16 @@ public class Catalog extends BookCollection {
             boolean finished = false;
             while ( finished == false ) {
                 //check if book is already in stock
-                for (Stock stock : cata) {
-                    if ( stock.getBooktitle() == title ) {  //if yes, add copies
+                for (StockInterface stock : collection) {
+                    if ( stock.getBooktitle() == title ) { 
+                        //if yes, add copies
                         stock.addCopies( copies );
                         finished = true;
                     }
                 }
                 //if not, create a stock
                 String author = book[1];
-                String dateString = book[2];
-                String[] parts = dateString.split("/");
+                String[] parts = book[2].split("/");
                 int year = Integer.parseInt( parts[0] );
                 int month = Integer.parseInt( parts[1] );
                 int day = Integer.parseInt( parts[2] );
@@ -38,16 +39,13 @@ public class Catalog extends BookCollection {
                 String place = book[3];
                 int isbn = Integer.parseInt( book[4] );
                 double price = Double.parseDouble( book[5] );
-                Currency currency = new Currency( book[6] );
+                Currency currency = Currency.getInstance( book[6] );
     
                 Book bookbook = new Book( title, author, date, place, isbn);
-                Stock b = new Stock( bookbook, copies, price, currency);
+                Stock stock = new Stock( bookbook, copies, price, currency);
+                collection.add( stock );
                 finished = true;
             }
-            
         }
-        
     }
-    public LinkedList< Stock > getCatalog() { return cata; }
-
 }
