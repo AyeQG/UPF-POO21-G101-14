@@ -1,7 +1,12 @@
 //package bookstore;
+import java.util.*;
+import java.text.SimpleDateFormat;
 
 public class TestStore {
     public static void main( String[] args ) {
-        //BookStore bookstore = new BookStore();
+        Catalog catalog = new Catalog(  );
+        ShoppingCart cart = new ShoppingCart( catalog );
+        BookStore bookstore = new BookStore(catalog, cart);
+
     }
 }

@@ -1,5 +1,5 @@
 //package bookstore;
-
+/*
 public class Date {
     private int year, month, day;
 
@@ -7,3 +7,4 @@ public class Date {
         year = y; month = m; day = d;
     }
 }
+*/

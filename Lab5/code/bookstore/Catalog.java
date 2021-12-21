@@ -1,49 +1,47 @@
-//package bookstore;
+//package blisttore;
 import java.util.*;
-import java.util.Currency;
+import java.text.SimpleDateFormat;
 
 public class Catalog extends BookCollection {
-    //private LinkedList< Stock > cata;
-
-    public Catalog( String filename ) {
+    /**
+     * Reads xml file with readcatalog() of Bookcollection,
+     * then creates the Stock instances and
+     * populates the attribute collection of Catalog.
+     */
+    public Catalog(  ) {//String filename
         super();
-        /**
-         * read xml file with readcatalog of Bookcollection
-         * create the stock instances
-         * populate the attribute collection of Catalog ?????
-         */
-        LinkedList< String[] > books = readCatalog( filename );
-        /* String[] tokens = { "title", "author", "date", "place",
-		                    "isbn", "price", "currency", "copies" }; */
-        for ( int i = 0; i < books.size(); i++ ) {
-            String[] book = books.get(i);
-            String title = book[0];
-            int copies = Integer.parseInt( book[7] );
+        LinkedList< String[] > blist = readCatalog( "books" );
+        //String[] tokens = { "title", "author", "date", "place", "isbn", "price", "currency", "copies" };
+        
+        for ( String[] barray : blist ) {
+            
+            String title = barray[0];                                       //title
+            int copies = Integer.parseInt( barray[7] );                     //copies
             boolean finished = false;
-            while ( finished == false ) {
+            
+            while ( finished == false ) {   //until we are not finished adding all stocks in collection
+                
                 //check if book is already in stock
                 for (StockInterface stock : collection) {
                     if ( stock.getBooktitle() == title ) { 
-                        //if yes, add copies
+                        //if YES, add copies
                         stock.addCopies( copies );
                         finished = true;
                     }
                 }
-                //if not, create a stock
-                String author = book[1];
-                String[] parts = book[2].split("/");
-                int year = Integer.parseInt( parts[0] );
-                int month = Integer.parseInt( parts[1] );
-                int day = Integer.parseInt( parts[2] );
-                Date date = new Date( year, month, day );
-                String place = book[3];
-                int isbn = Integer.parseInt( book[4] );
-                double price = Double.parseDouble( book[5] );
-                Currency currency = Currency.getInstance( book[6] );
+                //if NOT, create a stock
+                String author = barray[1];                                  //author
+                Date date = new Date();
+                try { date = new SimpleDateFormat().parse( barray[2] ); }   //date
+                catch ( Exception e ) {}
+                String place = barray[3];                                   //publication place
+                long isbn = Long.parseLong( barray[4] );                    //isbn
+                double price = Double.parseDouble( barray[5] );             //price
+                Currency currency = Currency.getInstance( barray[6] );      //currency
     
-                Book bookbook = new Book( title, author, date, place, isbn);
-                Stock stock = new Stock( bookbook, copies, price, currency);
-                collection.add( stock );
+                Book book = new Book( title, author, date, place, isbn);    //create Book
+                Stock stock = new Stock( book, copies, price, currency);    //create Stock
+                collection.add( stock );                                    //add stock to collection
                 finished = true;
             }
         }

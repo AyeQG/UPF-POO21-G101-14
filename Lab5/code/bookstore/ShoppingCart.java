@@ -1,5 +1,5 @@
 //package bookstore;
-import java.util.Currency;
+import java.util.*;
 
 public class ShoppingCart extends BookCollection implements ShoppingCartInterface{
     private Catalog catalog;
