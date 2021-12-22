@@ -12,16 +12,21 @@ public class Stock implements StockInterface {
     }
 
     public Book getBook() { return book; }
+    @Override
     public String getBooktitle() { return book.getTitle(); }
+    @Override
     public int numberOfCopies() { return copies; }
-
+    @Override
 	public void addCopies( int numberOfCopies ) {
         copies += numberOfCopies;
     }
+    @Override
 	public void removeCopies( int numberOfCopies ) {
         copies -= numberOfCopies;
     }
+    @Override
 	public double totalPrice() {
-        return (int)copies*price; //
+        System.out.println( "   <Stock> totalPrice() of a book: " + price );
+        return price; //(double)copies*price
     }
 }

@@ -8,20 +8,37 @@ public class Catalog extends BookCollection {
      * then creates the Stock instances and
      * populates the attribute collection of Catalog.
      */
-    public Catalog(  ) {//String filename
-        super();
-        LinkedList< String[] > blist = readCatalog( "books" );
+    public Catalog() {
+        super();    //collection = new HashSet< StockInterface >();
+        LinkedList< String[] > blist = readCatalog( "books.xml" );
         //String[] tokens = { "title", "author", "date", "place", "isbn", "price", "currency", "copies" };
         
         for ( String[] barray : blist ) {
             
             String title = barray[0];                                       //title
             int copies = Integer.parseInt( barray[7] );                     //copies
+            String author = barray[1];                                  //author
+            Date date = new Date();
+            try { date = new SimpleDateFormat().parse( barray[2] ); }   //date
+            catch ( Exception e ) {}
+            String place = barray[3];                                   //publication place
+            long isbn = Long.parseLong( barray[4] );                    //isbn
+            double price = Double.parseDouble( barray[5] );             //price
+            Currency currency = Currency.getInstance( barray[6] );      //currency
+
+            Book book = new Book( title, author, date, place, isbn );   //create Book
+            Stock stock = new Stock( book, copies, price, currency );   //create Stock
+            collection.add( stock );                                    //add stock to collection
+        }
+    }
+}
+
+//inside for
+            /*String title = barray[0];                                       //title
+            int copies = Integer.parseInt( barray[7] );                     //copies
             boolean finished = false;
-            
             while ( finished == false ) {   //until we are not finished adding all stocks in collection
-                
-                //check if book is already in stock
+                check if book is already in stock
                 for (StockInterface stock : collection) {
                     if ( stock.getBooktitle() == title ) { 
                         //if YES, add copies
@@ -29,7 +46,7 @@ public class Catalog extends BookCollection {
                         finished = true;
                     }
                 }
-                //if NOT, create a stock
+                if NOT, create a stock
                 String author = barray[1];                                  //author
                 Date date = new Date();
                 try { date = new SimpleDateFormat().parse( barray[2] ); }   //date
@@ -38,12 +55,9 @@ public class Catalog extends BookCollection {
                 long isbn = Long.parseLong( barray[4] );                    //isbn
                 double price = Double.parseDouble( barray[5] );             //price
                 Currency currency = Currency.getInstance( barray[6] );      //currency
-    
-                Book book = new Book( title, author, date, place, isbn);    //create Book
-                Stock stock = new Stock( book, copies, price, currency);    //create Stock
+
+                Book book = new Book( title, author, date, place, isbn );   //create Book
+                Stock stock = new Stock( book, copies, price, currency );   //create Stock
                 collection.add( stock );                                    //add stock to collection
                 finished = true;
-            }
-        }
-    }
-}
+            }*/
